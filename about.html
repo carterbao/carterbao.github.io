@@ -20,7 +20,7 @@
 	    <script src="js/modernizr.custom.js"></script>
 	</head>
 
-	<body>
+	<body id="page">
 		<div class="container">	
 			<header id="site-header">
 				<div class="row">
@@ -63,68 +63,30 @@
 		<div class="content-body">
 			<div class="container">
 				<div class="row">
-					<main class="col-md-8">
-
-						<article class="post post-1">
-							<header class="entry-header">
-								<h1 class="entry-title">
-									<a href="single.html">Love</a>
-								</h1>
-								<div class="entry-meta">
-									<span><a href="#">Roy Croft</a></span>
-								</div>
-							</header>
+					<main class="col-md-12">
+						<h1 class="page-title">About Us</h1>
+						<article class="post">
 							<div class="entry-content clearfix">
-								<p align="center">
-									I love you<br>
-									Not only for what you are,<br>
-									But for what I am<br>
-									When I am with you.
-								</p>
-								<p align="center">
-									I love you,<br>
-									Not only for what<br>
-									You have made of yourself,<br>
-									But for what<br>
-									You are making of me.
-								</p>
-								<div class="read-more cl-effect-14">
-									<a href="single.html" class="more-link">Continue reading <span class="meta-nav">→</span></a>
-								</div>
-							</div>
+								<figure class="img-responsive-center">	
+								<table align="center" cellpadding="10">
+								<tr><td><img class="img-responsive" src="img/marie.jpg" width="200" height="200" alt="Developer Image"> </td>
+								<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+								<td><img class="img-responsive" src="img/carter.jpg" width="200" height="200" alt="Developer Image"></td>
+								</tr>
+								</table>
+								</figure>
+								<p align="center"><span id="sitetime"> 已运行2 年 211 天 9 小时 39 分钟 42 秒</span> -- since Dec.21th,2015.</p>
+								<!--div class="height-40px"></div>
+								<h2 class="title text-center">Social</h2>
+								<ul class="social">
+									<li class="facebook"><a href="#"><span class="ion-social-facebook"></span></a></li>
+									<li class="twitter"><a href="#"><span class="ion-social-twitter"></span></a></li>
+									<li class="google-plus"><a href="#"><span class="ion-social-googleplus"></span></a></li>
+									<li class="tumblr"><a href="#"><span class="ion-social-tumblr"></span></a></li>
+								</ul>
+							</div-->
 						</article>
-
-					
-						<article class="post post-2">
-						</article>
-							
 					</main>
-					<aside class="col-md-4">
-						<!--div class="widget widget-recent-posts">		
-							<h3 class="widget-title">Recent Posts</h3>		
-							<ul>
-								<li>
-									<a href="#">Adaptive Vs. Responsive Layouts And Optimal Text Readability</a>
-								</li>
-								<!--li>
-									<a href="#">Web Design is 95% Typography</a>
-								</li>
-								<li>
-									<a href="#">Paper by FiftyThree</a>
-								</li-->
-							</ul>
-						</div-->
-						
-
-						<div class="widget widget-category">		
-							<h3 class="widget-title">Category</h3>		
-							<ul>
-								<li>
-									<a href="single.html">Love</a>
-								</li>
-							</ul>
-						</div>
-					</aside>
 				</div>
 			</div>
 		</div>
@@ -132,7 +94,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<p class="copyright">&copy; 2016 Marie &amp Carter's </p>
+						<p class="copyright">&copy; 2016 Marie &amp Carter's</p>
 					</div>
 				</div>
 			</div>
@@ -152,6 +114,40 @@
 		</div>
 
 		<script src="js/script.js"></script>
-
+		<script language="javascript">
+function siteTime(){
+window.setTimeout("siteTime()", 1000);
+var seconds = 1000
+var minutes = seconds * 60
+var hours = minutes * 60
+var days = hours * 24
+var years = days * 365
+var today = new Date()
+var todayYear = today.getFullYear()
+var todayMonth = today.getMonth()
+var todayDate = today.getDate()
+var todayHour = today.getHours()
+var todayMinute = today.getMinutes()
+var todaySecond = today.getSeconds()
+/* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+year - 作为date对象的年份，为4位年份值
+month - 0-11之间的整数，做为date对象的月份
+day - 1-31之间的整数，做为date对象的天数
+hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+minutes - 0-59之间的整数，做为date对象的分钟数
+seconds - 0-59之间的整数，做为date对象的秒数
+microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+var t1 = Date.UTC(2015,11,21,1,0,0)
+var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+var diff = t2-t1
+var diffYears = Math.floor(diff/years)
+var diffDays = Math.floor((diff/days)-diffYears*365)
+var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+document.getElementById("sitetime").innerHTML=" We've been together for "+diffYears+" years "+diffDays+" days "+diffHours+" hours "+diffMinutes+" mins "+diffSeconds+" secs"
+}
+siteTime()
+</script>
 	</body>
 </html>
