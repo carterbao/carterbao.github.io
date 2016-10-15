@@ -140,12 +140,13 @@ microseconds - 0-999之间的整数，做为date对象的毫秒数 */
 var t1 = Date.UTC(2015,11,21,1,0,0)
 var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
 var diff = t2-t1
-var diffYears = Math.floor(diff/years)
+//var diffYears = Math.floor(diff/years)
+var diffYears = 0
 var diffDays = Math.floor((diff/days)-diffYears*365)
 var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
 var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
 var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
-document.getElementById("sitetime").innerHTML=" We've been together for "+diffYears+" years "+diffDays+" days "+diffHours+" hours "+diffMinutes+" mins "+diffSeconds+" secs"
+document.getElementById("sitetime").innerHTML=" We've been together for " +diffDays+" days "+diffHours+" hours "+diffMinutes+" mins "+diffSeconds+" secs"
 }
 siteTime()
 </script>
